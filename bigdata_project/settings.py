@@ -37,7 +37,7 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
-    # "irembo_gov",
+    "crops",
     'tailwind',
     'irembo_com',
     'django_browser_reload'
