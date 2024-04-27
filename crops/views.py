@@ -9,7 +9,9 @@ def index(request):
     return render(request, "crops/home.html", context)
 
 def prediction(request):
-    latest_question_list = []
-    context = {"latest_question_list": latest_question_list}
-
+    if request.method == 'POST':
+        input1 = request.POST.get('input1')
+        print("------=",input1)
+    context = {"prediction_value": input1}
     return render(request, "crops/prediction.html", context)
+
