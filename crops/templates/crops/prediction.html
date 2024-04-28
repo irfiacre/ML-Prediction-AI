@@ -121,52 +121,151 @@
       <form
         action="{% url 'prediction' %}"
         method="post"
-        class="bg-white rounded px-8 pt-6 pb-8 mb-4"
+        class="bg-white rounded px-8 pt-6 pb-8 mb-4 flex flex-wrap"
       >
         {% csrf_token %}
-        <div class="mb-4 flex gap-5">
+        <div class="mb-4 flex gap-5 flex flex-wrap">
           <div>
             <label
               class="block text-gray-700 text-sm font-bold mb-2"
-              for="input1"
+              for="area"
             >
-              Input 1
+              Area
             </label>
             <input
               class="shadow appearance-none border rounded-md w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-              id="input1"
-              name="input1"
+              id="area"
+              name="area"
               type="text"
-              placeholder="Enter...."
+              placeholder="Enter Area.."
+              value="{{ user_inputs.0 }}"
+            />
+          </div>
+          <div>
+            <label
+              class="block text-gray-700 text-sm font-bold mb-2"
+              for="item"
+            >
+              Crop Type
+            </label>
+            <input
+              class="shadow appearance-none border rounded-md w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+              id="item"
+              name="item"
+              type="text"
+              placeholder="Enter Crop..."
+              value="{{ user_inputs.1 }}"
+            />
+          </div>
+          <div>
+            <label
+              class="block text-gray-700 text-sm font-bold mb-2"
+              for="year"
+            >
+              Year
+            </label>
+            <input
+              class="shadow appearance-none border rounded-md w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+              id="year"
+              name="year"
+              type="text"
+              placeholder="Enter Year..."
+              value="{{ user_inputs.2 }}"
+            />
+          </div>
+          <div>
+            <label
+              class="block text-gray-700 text-sm font-bold mb-2"
+              for="rain_avg"
+            >
+              Average Rainfall per Year
+            </label>
+            <input
+              class="shadow appearance-none border rounded-md w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+              id="rain_avg"
+              name="rain_avg"
+              type="text"
+              placeholder="Enter Average rain fall per year..."
+              value="{{ user_inputs.3 }}"
+            />
+          </div>
+          <div>
+            <label
+              class="block text-gray-700 text-sm font-bold mb-2"
+              for="pesticides"
+            >
+              Used Pesticide (tonnes)
+            </label>
+            <input
+              class="shadow appearance-none border rounded-md w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+              id="pesticides"
+              name="pesticides"
+              type="text"
+              placeholder="Enter Pesticides used...."
+              value="{{ user_inputs.4 }}"
+            />
+          </div>
+          <div>
+            <label
+              class="block text-gray-700 text-sm font-bold mb-2"
+              for="avg_temp"
+            >
+              Average Temperature
+            </label>
+            <input
+              class="shadow appearance-none border rounded-md w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+              id="avg_temp"
+              name="avg_temp"
+              type="text"
+              placeholder="Enter Average Temperature..."
+              value="{{ user_inputs.5 }}"
             />
           </div>
         </div>
-        <button
-          class="border font-bold text-white hover:bg-transparent py-3 px-4 rounded-lg flex gap-3"
-          style="background-color: #009048"
-          type="submit"
-        >
-          Start Prediction
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 24 24"
-            fill="currentColor"
-            class="w-6 h-6"
+        <div class="flex gap-5">
+          <button
+            class="border font-bold text-white hover:bg-transparent py-3 px-4 rounded-lg flex gap-3"
+            style="background-color: #009048"
+            type="submit"
           >
-            <path
-              fill-rule="evenodd"
-              d="M9.315 7.584C12.195 3.883 16.695 1.5 21.75 1.5a.75.75 0 0 1 .75.75c0 5.056-2.383 9.555-6.084 12.436A6.75 6.75 0 0 1 9.75 22.5a.75.75 0 0 1-.75-.75v-4.131A15.838 15.838 0 0 1 6.382 15H2.25a.75.75 0 0 1-.75-.75 6.75 6.75 0 0 1 7.815-6.666ZM15 6.75a2.25 2.25 0 1 0 0 4.5 2.25 2.25 0 0 0 0-4.5Z"
-              clip-rule="evenodd"
-            />
-            <path
-              d="M5.26 17.242a.75.75 0 1 0-.897-1.203 5.243 5.243 0 0 0-2.05 5.022.75.75 0 0 0 .625.627 5.243 5.243 0 0 0 5.022-2.051.75.75 0 1 0-1.202-.897 3.744 3.744 0 0 1-3.008 1.51c0-1.23.592-2.323 1.51-3.008Z"
-            />
-          </svg>
-        </button>
+            Check Prediction
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              fill="currentColor"
+              class="w-6 h-6"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M9.315 7.584C12.195 3.883 16.695 1.5 21.75 1.5a.75.75 0 0 1 .75.75c0 5.056-2.383 9.555-6.084 12.436A6.75 6.75 0 0 1 9.75 22.5a.75.75 0 0 1-.75-.75v-4.131A15.838 15.838 0 0 1 6.382 15H2.25a.75.75 0 0 1-.75-.75 6.75 6.75 0 0 1 7.815-6.666ZM15 6.75a2.25 2.25 0 1 0 0 4.5 2.25 2.25 0 0 0 0-4.5Z"
+                clip-rule="evenodd"
+              />
+              <path
+                d="M5.26 17.242a.75.75 0 1 0-.897-1.203 5.243 5.243 0 0 0-2.05 5.022.75.75 0 0 0 .625.627 5.243 5.243 0 0 0 5.022-2.051.75.75 0 1 0-1.202-.897 3.744 3.744 0 0 1-3.008 1.51c0-1.23.592-2.323 1.51-3.008Z"
+              />
+            </svg>
+          </button>
+        </div>
       </form>
     </div>
-    <div class="relative container mx-auto w-full align-middle">
-      <p>{{ prediction_value }}</p>
+    <div
+      class="relative container mx-auto w-full align-middle px-8 pt-6 pb-8 mb-4"
+    >
+      <div class="flex sm:justify-start w-full items-baseline gap-5 flex-wrap">
+        <h2 class="text-gray-500 text-4xl">Yield Prediction is:</h2>
+        <h1 class="text-6xl font-bold" style="color: #009048">
+          {{ prediction_value }}<span class="text-gray-600 font-bold">
+            Tonnes
+          </span>
+        </h1>
+        <h2 class="text-gray-500 text-4xl">Per 1 Hectare</h2>
+      </div>
+
+      <a
+        class="text-xl text-gray-400 inline-block no-underline border-b border-gray-400 leading-relaxed hover:text-black hover:border-black my-10"
+        href="/prediction/"
+        >Reset</a
+      >
     </div>
   </body>
 </html>
