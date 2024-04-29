@@ -1,6 +1,8 @@
 from django.http import HttpResponse
 from django.shortcuts import render
-import joblib
+from joblib import load
+import numpy as np
+
 
 def index(request):
     latest_question_list = []
@@ -12,23 +14,33 @@ def prediction(request):
     prediction = [0]
     user_inputs=[]
     if request.method == 'POST':
-        area = int(request.POST.get('area'))
-        item = int(request.POST.get('item'))
-        year = int(request.POST.get('year'))
-        rain_avg = float(request.POST.get('rain_avg'))
-        pesticides = float(request.POST.get('pesticides'))
-        avg_temp = float(request.POST.get('avg_temp'))
+        # Load your machine learning model
+        model = load('controller/model/crop-predictor.joblib')
 
-        user_inputs = [area,item,year,rain_avg,pesticides,avg_temp]
-        scaled_inputs = [user_inputs]
+        # Get the input values from the form and convert them to float
+        rainfall = int(request.POST.get('rainfall'))
+        fertilizer = int(request.POST.get('fertilizer'))
+        temperature = int(request.POST.get('temperature'))
+        nitrogen = int(request.POST.get('nitrogen'))
+        phosphorus = int(request.POST.get('phosphorus'))
+        potassium = int(request.POST.get('potassium'))
 
-        model=joblib.load('controller/crop-yield-predictor2.joblib')
+        user_inputs = [rainfall,temperature,fertilizer,nitrogen,phosphorus,potassium]
+        print("Received input data:")
+        print(f"Rainfall: {rainfall}")
+        print(f"Fertilizer: {fertilizer}")
+        print(f"Temperature: {temperature}")
+        print(f"Nitrogen: {nitrogen}")
+        print(f"Phosphorus: {phosphorus}")
+        print(f"Potassium: {potassium}")
 
-        prediction = model.predict(scaled_inputs)
-        
+        input_data = np.array([user_inputs])
+
+        prediction = model.predict(input_data)
+        print(f"==== Predicted crop yield: {prediction.tolist()}")
         
     context = {
-        "prediction_value": round((prediction[0] * 0.0001),3), 
+        "prediction_value": round((prediction[0]),3), 
         "user_inputs": [str(i) for i in user_inputs],
         }
     return render(request, "crops/prediction.html", context)
