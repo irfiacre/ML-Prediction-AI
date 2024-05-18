@@ -38,9 +38,10 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "crops",
-    'tailwind',
-    'irembo_com',
-    'django_browser_reload'
+    "tailwind",
+    "irembo_com",
+    "django_browser_reload",
+    "malaria"
 ]
 
 MIDDLEWARE = [

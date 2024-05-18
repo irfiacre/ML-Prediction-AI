@@ -21,5 +21,6 @@ urlpatterns = [
     path("", include("crops.urls")),
     path("admin/", admin.site.urls),
     path("irembo-com/", include("irembo_com.urls")),
+    path("malaria/", include("malaria.urls")),
     path("__reload__/", include("django_browser_reload.urls")),
 ]
