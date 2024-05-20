@@ -1,0 +1,712 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Prediction</title>
+    <meta
+      name="description"
+      content="Free open source Tailwind CSS Store template"
+    />
+    <meta
+      name="keywords"
+      content="tailwind,tailwindcss,tailwind css,css,starter template,free template,store template, shop layout, minimal, monochrome, minimalistic, theme, nordic"
+    />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/tailwindcss@2.2.19/dist/tailwind.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Work+Sans:200,400&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      .work-sans {
+        font-family: "Work Sans", sans-serif;
+      }
+
+      #menu-toggle:checked + #menu {
+        display: block;
+      }
+
+      .hover\:grow {
+        transition: all 0.3s;
+        transform: scale(1);
+      }
+
+      .hover\:grow:hover {
+        transform: scale(1.02);
+      }
+
+      .carousel-open:checked + .carousel-item {
+        position: static;
+        opacity: 100;
+      }
+
+      .carousel-item {
+        -webkit-transition: opacity 0.6s ease-out;
+        transition: opacity 0.6s ease-out;
+      }
+
+      #carousel-1:checked ~ .control-1,
+      #carousel-2:checked ~ .control-2,
+      #carousel-3:checked ~ .control-3 {
+        display: block;
+      }
+
+      .carousel-indicators {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        position: absolute;
+        bottom: 2%;
+        left: 0;
+        right: 0;
+        text-align: center;
+        z-index: 10;
+      }
+
+      #carousel-1:checked
+        ~ .control-1
+        ~ .carousel-indicators
+        li:nth-child(1)
+        .carousel-bullet,
+      #carousel-2:checked
+        ~ .control-2
+        ~ .carousel-indicators
+        li:nth-child(2)
+        .carousel-bullet,
+      #carousel-3:checked
+        ~ .control-3
+        ~ .carousel-indicators
+        li:nth-child(3)
+        .carousel-bullet {
+        color: #000;
+        /*Set to match the Tailwind colour you want the active one to be */
+      }
+    </style>
+  </head>
+
+  <body
+    class="bg-white text-gray-600 work-sans leading-normal text-base tracking-normal"
+  >
+    <!--Nav-->
+    <nav id="header" class="w-full z-30 top-0 py-1">
+      <div
+        class="w-full container mx-auto flex flex-wrap items-center justify-between mt-0 px-6 py-3"
+      >
+        <div class="order-1 md:order-2">
+          <h1
+            class="capitalize hover:no-underline font-black text-purple-600 text-4xl"
+          >
+            Breast cancer Prediction
+          </h1>
+        </div>
+
+        <div
+          class="order-2 md:order-3 flex items-center"
+          id="nav-content"
+        ></div>
+      </div>
+    </nav>
+    <div class="relative container mx-auto w-full align-middle">
+      <form
+        action="{% url 'br_prediction' %}"
+        method="post"
+        class="bg-white rounded px-8 pt-6 pb-8 mb-4 flex flex-wrap"
+      >
+        {% csrf_token %}
+
+        <div>
+          <h1
+            class="capitalize hover:no-underline font-bold text-purple-500 text-xl py-5"
+          >
+            Mean Values
+          </h1>
+          <div class="mb-4 flex gap-5 flex flex-wrap">
+            <div>
+              <label
+                class="block text-gray-700 text-sm font-bold mb-2"
+                for="radius_mean"
+              >
+                Radius (0...100)
+              </label>
+              <input
+                class="shadow appearance-none border rounded-md w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                id="radius_mean"
+                name="radius_mean"
+                type="text"
+                placeholder="Enter value..."
+                value="{{ user_inputs.0 }}"
+                required
+              />
+            </div>
+            <div>
+              <label
+                class="block text-gray-700 text-sm font-bold mb-2"
+                for="texture_mean"
+              >
+                Texture
+              </label>
+              <input
+                class="shadow appearance-none border rounded-md w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                id="texture_mean"
+                name="texture_mean"
+                type="text"
+                required
+                placeholder="Enter value..."
+                value="{{ user_inputs.1 }}"
+              />
+            </div>
+            <div>
+              <label
+                class="block text-gray-700 text-sm font-bold mb-2"
+                for="perimeter_mean"
+              >
+                Perimeter
+              </label>
+              <input
+                class="shadow appearance-none border rounded-md w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                id="perimeter_mean"
+                name="perimeter_mean"
+                type="text"
+                required
+                placeholder="Enter value..."
+                value="{{ user_inputs.2 }}"
+              />
+            </div>
+            <div>
+              <label
+                class="block text-gray-700 text-sm font-bold mb-2"
+                for="area_mean"
+              >
+                Area
+              </label>
+              <input
+                class="shadow appearance-none border rounded-md w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                id="area_mean"
+                name="area_mean"
+                type="text"
+                required
+                placeholder="Enter value..."
+                value="{{ user_inputs.3 }}"
+              />
+            </div>
+            <div>
+              <label
+                class="block text-gray-700 text-sm font-bold mb-2"
+                for="smoothness_mean"
+              >
+                Smoothness
+              </label>
+              <input
+                class="shadow appearance-none border rounded-md w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                id="smoothness_mean"
+                name="smoothness_mean"
+                type="text"
+                required
+                placeholder="Enter value..."
+                value="{{ user_inputs.4 }}"
+              />
+            </div>
+            <div>
+              <label
+                class="block text-gray-700 text-sm font-bold mb-2"
+                for="compactness_mean"
+              >
+                Compactness
+              </label>
+              <input
+                class="shadow appearance-none border rounded-md w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                id="compactness_mean"
+                name="compactness_mean"
+                type="text"
+                required
+                placeholder="Enter value...."
+                value="{{ user_inputs.5 }}"
+              />
+            </div>
+
+            <div>
+              <label
+                class="block text-gray-700 text-sm font-bold mb-2"
+                for="concavity_mean"
+              >
+                Concavity
+              </label>
+              <input
+                class="shadow appearance-none border rounded-md w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                id="concavity_mean"
+                name="concavity_mean"
+                type="text"
+                required
+                placeholder="Enter value...."
+                value="{{ user_inputs.6 }}"
+              />
+            </div>
+            <div>
+              <label
+                class="block text-gray-700 text-sm font-bold mb-2"
+                for="concave_points_mean"
+              >
+                Concave Points
+              </label>
+              <input
+                class="shadow appearance-none border rounded-md w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                id="concave_points_mean"
+                name="concave_points_mean"
+                type="text"
+                required
+                placeholder="Enter value...."
+                value="{{ user_inputs.7 }}"
+              />
+            </div>
+
+            <div>
+              <label
+                class="block text-gray-700 text-sm font-bold mb-2"
+                for="symmetry_mean"
+              >
+                Symmetry
+              </label>
+              <input
+                class="shadow appearance-none border rounded-md w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                id="symmetry_mean"
+                name="symmetry_mean"
+                type="text"
+                required
+                placeholder="Enter value...."
+                value="{{ user_inputs.8 }}"
+              />
+            </div>
+
+            <div>
+              <label
+                class="block text-gray-700 text-sm font-bold mb-2"
+                for="fractal_dimension_mean"
+              >
+                Fractal Dimension
+              </label>
+              <input
+                class="shadow appearance-none border rounded-md w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                id="fractal_dimension_mean"
+                name="fractal_dimension_mean"
+                type="text"
+                required
+                placeholder="Enter value...."
+                value="{{ user_inputs.9 }}"
+              />
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <h1
+            class="capitalize hover:no-underline font-bold text-purple-500 text-xl py-5"
+          >
+            SE Values
+          </h1>
+          <div class="mb-4 flex gap-5 flex flex-wrap">
+            <div>
+              <label
+                class="block text-gray-700 text-sm font-bold mb-2"
+                for="radius_se"
+              >
+                Radius (0...100)
+              </label>
+              <input
+                class="shadow appearance-none border rounded-md w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                id="radius_se"
+                name="radius_se"
+                type="text"
+                required
+                placeholder="Enter value..."
+                value="{{ user_inputs.10 }}"
+              />
+            </div>
+            <div>
+              <label
+                class="block text-gray-700 text-sm font-bold mb-2"
+                for="texture_se"
+              >
+                Texture
+              </label>
+              <input
+                class="shadow appearance-none border rounded-md w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                id="texture_se"
+                name="texture_se"
+                type="text"
+                required
+                placeholder="Enter value..."
+                value="{{ user_inputs.11 }}"
+              />
+            </div>
+            <div>
+              <label
+                class="block text-gray-700 text-sm font-bold mb-2"
+                for="perimeter_se"
+              >
+                Perimeter
+              </label>
+              <input
+                class="shadow appearance-none border rounded-md w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                id="perimeter_se"
+                name="perimeter_se"
+                type="text"
+                required
+                placeholder="Enter value..."
+                value="{{ user_inputs.12 }}"
+              />
+            </div>
+            <div>
+              <label
+                class="block text-gray-700 text-sm font-bold mb-2"
+                for="area_se"
+              >
+                Area
+              </label>
+              <input
+                class="shadow appearance-none border rounded-md w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                id="area_se"
+                name="area_se"
+                type="text"
+                required
+                placeholder="Enter value..."
+                value="{{ user_inputs.13 }}"
+              />
+            </div>
+            <div>
+              <label
+                class="block text-gray-700 text-sm font-bold mb-2"
+                for="smoothness_se"
+              >
+                Smoothness
+              </label>
+              <input
+                class="shadow appearance-none border rounded-md w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                id="smoothness_se"
+                name="smoothness_se"
+                type="text"
+                required
+                placeholder="Enter value..."
+                value="{{ user_inputs.14 }}"
+              />
+            </div>
+            <div>
+              <label
+                class="block text-gray-700 text-sm font-bold mb-2"
+                for="compactness_se"
+              >
+                Compactness
+              </label>
+              <input
+                class="shadow appearance-none border rounded-md w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                id="compactness_se"
+                name="compactness_se"
+                type="text"
+                required
+                placeholder="Enter value...."
+                value="{{ user_inputs.15 }}"
+              />
+            </div>
+
+            <div>
+              <label
+                class="block text-gray-700 text-sm font-bold mb-2"
+                for="concavity_se"
+              >
+                Concavity
+              </label>
+              <input
+                class="shadow appearance-none border rounded-md w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                id="concavity_se"
+                name="concavity_se"
+                type="text"
+                required
+                placeholder="Enter value...."
+                value="{{ user_inputs.16 }}"
+              />
+            </div>
+            <div>
+              <label
+                class="block text-gray-700 text-sm font-bold mb-2"
+                for="concave_points_se"
+              >
+                Concave Points
+              </label>
+              <input
+                class="shadow appearance-none border rounded-md w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                id="concave_points_se"
+                name="concave_points_se"
+                type="text"
+                required
+                placeholder="Enter value...."
+                value="{{ user_inputs.17 }}"
+              />
+            </div>
+
+            <div>
+              <label
+                class="block text-gray-700 text-sm font-bold mb-2"
+                for="symmetry_se"
+              >
+                Symmetry
+              </label>
+              <input
+                class="shadow appearance-none border rounded-md w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                id="symmetry_se"
+                name="symmetry_se"
+                type="text"
+                required
+                placeholder="Enter value...."
+                value="{{ user_inputs.18 }}"
+              />
+            </div>
+
+            <div>
+              <label
+                class="block text-gray-700 text-sm font-bold mb-2"
+                for="fractal_dimension_se"
+              >
+                Fractal Dimension
+              </label>
+              <input
+                class="shadow appearance-none border rounded-md w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                id="fractal_dimension_se"
+                name="fractal_dimension_se"
+                type="text"
+                required
+                placeholder="Enter value...."
+                value="{{ user_inputs.19 }}"
+              />
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <h1
+            class="capitalize hover:no-underline font-bold text-purple-500 text-xl py-5"
+          >
+            Worst case Values
+          </h1>
+          <div class="mb-4 flex gap-5 flex flex-wrap">
+            <div>
+              <label
+                class="block text-gray-700 text-sm font-bold mb-2"
+                for="radius_worst"
+              >
+                Radius
+              </label>
+              <input
+                class="shadow appearance-none border rounded-md w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                id="radius_worst"
+                name="radius_worst"
+                type="text"
+                required
+                placeholder="Enter value..."
+                value="{{ user_inputs.20 }}"
+              />
+            </div>
+            <div>
+              <label
+                class="block text-gray-700 text-sm font-bold mb-2"
+                for="texture_worst"
+              >
+                Texture
+              </label>
+              <input
+                class="shadow appearance-none border rounded-md w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                id="texture_worst"
+                name="texture_worst"
+                type="text"
+                required
+                placeholder="Enter value..."
+                value="{{ user_inputs.21 }}"
+              />
+            </div>
+            <div>
+              <label
+                class="block text-gray-700 text-sm font-bold mb-2"
+                for="perimeter_worst"
+              >
+                Perimeter
+              </label>
+              <input
+                class="shadow appearance-none border rounded-md w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                id="perimeter_worst"
+                name="perimeter_worst"
+                type="text"
+                required
+                placeholder="Enter value..."
+                value="{{ user_inputs.22 }}"
+              />
+            </div>
+            <div>
+              <label
+                class="block text-gray-700 text-sm font-bold mb-2"
+                for="area_worst"
+              >
+                Area
+              </label>
+              <input
+                class="shadow appearance-none border rounded-md w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                id="area_worst"
+                name="area_worst"
+                type="text"
+                required
+                placeholder="Enter value..."
+                value="{{ user_inputs.23 }}"
+              />
+            </div>
+            <div>
+              <label
+                class="block text-gray-700 text-sm font-bold mb-2"
+                for="smoothness_worst"
+              >
+                Smoothness
+              </label>
+              <input
+                class="shadow appearance-none border rounded-md w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                id="smoothness_worst"
+                name="smoothness_worst"
+                type="text"
+                required
+                placeholder="Enter value..."
+                value="{{ user_inputs.24 }}"
+              />
+            </div>
+            <div>
+              <label
+                class="block text-gray-700 text-sm font-bold mb-2"
+                for="compactness_worst"
+              >
+                Compactness
+              </label>
+              <input
+                class="shadow appearance-none border rounded-md w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                id="compactness_worst"
+                name="compactness_worst"
+                type="text"
+                required
+                placeholder="Enter value...."
+                value="{{ user_inputs.25 }}"
+              />
+            </div>
+
+            <div>
+              <label
+                class="block text-gray-700 text-sm font-bold mb-2"
+                for="concavity_worst"
+              >
+                Concavity
+              </label>
+              <input
+                class="shadow appearance-none border rounded-md w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                id="concavity_worst"
+                name="concavity_worst"
+                type="text"
+                required
+                placeholder="Enter value...."
+                value="{{ user_inputs.26 }}"
+              />
+            </div>
+            <div>
+              <label
+                class="block text-gray-700 text-sm font-bold mb-2"
+                for="concave_points_worst"
+              >
+                Concave Points
+              </label>
+              <input
+                class="shadow appearance-none border rounded-md w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                id="concave_points_worst"
+                name="concave_points_worst"
+                type="text"
+                required
+                placeholder="Enter value...."
+                value="{{ user_inputs.27 }}"
+              />
+            </div>
+
+            <div>
+              <label
+                class="block text-gray-700 text-sm font-bold mb-2"
+                for="symmetry_worst"
+              >
+                Symmetry
+              </label>
+              <input
+                class="shadow appearance-none border rounded-md w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                id="symmetry_worst"
+                name="symmetry_worst"
+                type="text"
+                required
+                placeholder="Enter value...."
+                value="{{ user_inputs.28 }}"
+              />
+            </div>
+
+            <div>
+              <label
+                class="block text-gray-700 text-sm font-bold mb-2"
+                for="fractal_dimension_worst"
+              >
+                Fractal Dimension
+              </label>
+              <input
+                class="shadow appearance-none border rounded-md w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                id="fractal_dimension_worst"
+                name="fractal_dimension_worst"
+                type="text"
+                required
+                placeholder="Enter value...."
+                value="{{ user_inputs.29 }}"
+              />
+            </div>
+          </div>
+        </div>
+
+        <div class="flex gap-5">
+          <button
+            class="border font-bold text-white hover:bg-purple-900 py-3 px-4 rounded-lg flex gap-3 bg-purple-500"
+            type="submit"
+          >
+            Check Prediction
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              fill="currentColor"
+              class="w-6 h-6"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M9.315 7.584C12.195 3.883 16.695 1.5 21.75 1.5a.75.75 0 0 1 .75.75c0 5.056-2.383 9.555-6.084 12.436A6.75 6.75 0 0 1 9.75 22.5a.75.75 0 0 1-.75-.75v-4.131A15.838 15.838 0 0 1 6.382 15H2.25a.75.75 0 0 1-.75-.75 6.75 6.75 0 0 1 7.815-6.666ZM15 6.75a2.25 2.25 0 1 0 0 4.5 2.25 2.25 0 0 0 0-4.5Z"
+                clip-rule="evenodd"
+              />
+              <path
+                d="M5.26 17.242a.75.75 0 1 0-.897-1.203 5.243 5.243 0 0 0-2.05 5.022.75.75 0 0 0 .625.627 5.243 5.243 0 0 0 5.022-2.051.75.75 0 1 0-1.202-.897 3.744 3.744 0 0 1-3.008 1.51c0-1.23.592-2.323 1.51-3.008Z"
+              />
+            </svg>
+          </button>
+        </div>
+      </form>
+    </div>
+    <div
+      class="relative container mx-auto w-full align-middle px-8 pt-6 pb-8 mb-4"
+    >
+      <div class="flex sm:justify-start w-full items-baseline gap-5 flex-wrap">
+        <h2 class="text-gray-500 text-3xl">Diagnosis Prediction is:</h2>
+        <h1 class="text-3xl font-bold text-purple-600">
+          {{ prediction_value }}
+        </h1>
+      </div>
+
+      <a
+        class="text-xl text-purple-400 inline-block no-underline border-b border-ptext-purple-400 leading-relaxed hover:text-purple-900 hover:border-purple-900 my-10"
+        href="/prediction/"
+        >Reset</a
+      >
+    </div>
+  </body>
+</html>

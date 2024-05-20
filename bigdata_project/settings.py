@@ -37,11 +37,12 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
-    "crops",
     "tailwind",
+    "breast_cancer",
     "irembo_com",
     "django_browser_reload",
-    "malaria"
+    "malaria",
+    "crops",
 ]
 
 MIDDLEWARE = [

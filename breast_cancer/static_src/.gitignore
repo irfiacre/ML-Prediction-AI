@@ -1,0 +1,4 @@
+node_modules
+package-lock.json
+bigdata_env/
+bigdata_env.bak/

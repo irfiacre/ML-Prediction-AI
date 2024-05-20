@@ -18,9 +18,10 @@ from django.contrib import admin
 from django.urls import path, include
 
 urlpatterns = [
-    path("", include("crops.urls")),
+    path("", include("breast_cancer.urls")),
     path("admin/", admin.site.urls),
     path("irembo-com/", include("irembo_com.urls")),
     path("malaria/", include("malaria.urls")),
+    path("crops/", include("crops.urls")),
     path("__reload__/", include("django_browser_reload.urls")),
 ]
