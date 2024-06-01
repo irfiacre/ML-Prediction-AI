@@ -1,390 +1,478 @@
 {% load static tailwind_tags %}
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Irembo is a technology company that builds digital products to help businesses deliver online services and payments."
+    />
+    <meta
+      name="google-site-verification"
+      content="VUXBoR_F0TqoyejYtnWoxkye_WdpdvuGr8g9FVQVsHU"
+    />
+    <title>ML Prediction</title>
 
-<head>
-    <meta charset="UTF-8"/>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <meta name="description" content="Irembo is a technology company that builds digital products to help businesses deliver online services and payments."/>
-	<meta name="google-site-verification" content="VUXBoR_F0TqoyejYtnWoxkye_WdpdvuGr8g9FVQVsHU" />
-    <title>Irembo</title>
+    <link
+      rel="shortcut icon"
+      href="https://irembo.com/wp-content/themes/irembo/images/icon.png"
+    />
+    <link
+      rel="stylesheet"
+      href="https://irembo.com/wp-content/themes/irembo/css/animate.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://irembo.com/wp-content/themes/irembo/css/bootstrap-grid.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://irembo.com/wp-content/themes/irembo/css/bootstrap-grid.css.map"
+    />
+    <link
+      rel="stylesheet"
+      href="https://irembo.com/wp-content/themes/irembo/css/bootstrap-grid.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://irembo.com/wp-content/themes/irembo/css/bootstrap-grid.min.css.map"
+    />
+    <link
+      rel="stylesheet"
+      href="https://irembo.com/wp-content/themes/irembo/css/bootstrap-reboot.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://irembo.com/wp-content/themes/irembo/css/bootstrap-reboot.css.map"
+    />
+    <link
+      rel="stylesheet"
+      href="https://irembo.com/wp-content/themes/irembo/css/bootstrap-reboot.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://irembo.com/wp-content/themes/irembo/css/bootstrap-reboot.min.css.map"
+    />
+    <link
+      rel="stylesheet"
+      href="https://irembo.com/wp-content/themes/irembo/css/bootstrap.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://irembo.com/wp-content/themes/irembo/css/bootstrap.css.map"
+    />
+    <link
+      rel="stylesheet"
+      href="https://irembo.com/wp-content/themes/irembo/css/bootstrap.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://irembo.com/wp-content/themes/irembo/css/bootstrap.min.css.map"
+    />
+    <link
+      rel="stylesheet"
+      href="https://irembo.com/wp-content/themes/irembo/css/font-awesome.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://irembo.com/wp-content/themes/irembo/css/index.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://irembo.com/wp-content/themes/irembo/css/irembo_ui.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://irembo.com/wp-content/themes/irembo/css/sweetalert.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://irembo.com/wp-content/themes/irembo/fonts/stylesheet.css"
+    />
 
-    <link rel="shortcut icon" href="https://irembo.com/wp-content/themes/irembo/images/icon.png">
-    <link rel="stylesheet" href="https://irembo.com/wp-content/themes/irembo/css/animate.css">
-    <link rel="stylesheet" href="https://irembo.com/wp-content/themes/irembo/css/bootstrap-grid.css">
-    <link rel="stylesheet" href="https://irembo.com/wp-content/themes/irembo/css/bootstrap-grid.css.map">
-    <link rel="stylesheet" href="https://irembo.com/wp-content/themes/irembo/css/bootstrap-grid.min.css">
-    <link rel="stylesheet" href="https://irembo.com/wp-content/themes/irembo/css/bootstrap-grid.min.css.map">
-    <link rel="stylesheet" href="https://irembo.com/wp-content/themes/irembo/css/bootstrap-reboot.css">
-    <link rel="stylesheet" href="https://irembo.com/wp-content/themes/irembo/css/bootstrap-reboot.css.map">
-    <link rel="stylesheet" href="https://irembo.com/wp-content/themes/irembo/css/bootstrap-reboot.min.css">
-    <link rel="stylesheet" href="https://irembo.com/wp-content/themes/irembo/css/bootstrap-reboot.min.css.map">
-    <link rel="stylesheet" href="https://irembo.com/wp-content/themes/irembo/css/bootstrap.css">
-    <link rel="stylesheet" href="https://irembo.com/wp-content/themes/irembo/css/bootstrap.css.map">
-    <link rel="stylesheet" href="https://irembo.com/wp-content/themes/irembo/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://irembo.com/wp-content/themes/irembo/css/bootstrap.min.css.map">
-    <link rel="stylesheet" href="https://irembo.com/wp-content/themes/irembo/css/font-awesome.min.css">
-    <link rel="stylesheet" href="https://irembo.com/wp-content/themes/irembo/css/index.css">
-    <link rel="stylesheet" href="https://irembo.com/wp-content/themes/irembo/css/irembo_ui.css">
-    <link rel="stylesheet" href="https://irembo.com/wp-content/themes/irembo/css/sweetalert.css">
-    <link rel="stylesheet" href="https://irembo.com/wp-content/themes/irembo/fonts/stylesheet.css">
-
-    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+    />
     {% tailwind_css %}
-</head>
+  </head>
 
-<body>
+  <body>
+    <div id="sticky-anchor"></div>
 
-<div id="sticky-anchor"></div>
-
-
-<nav class="navbar navbar-expand-lg fixed-top transparent_navbar irembo_navbar bg_blue" id="sticky">
-  <div class="container-fluid irembo_container">
-    <a class="navbar-brand" href="/">
-      <img src="https://irembo.com/wp-content/themes/irembo/images/logo.svg" height="36px"/>
-    </a>
-    <button id="drawer-opener" class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <nav
+      class="navbar navbar-expand-lg fixed-top transparent_navbar irembo_navbar bg_blue"
+      id="sticky"
+    >
+      <div class="container-fluid irembo_container">
+        <a class="navbar-brand" href="/">
+          {% comment %}
+          <img
+            src="https://irembo.com/wp-content/themes/irembo/images/logo.svg"
+            height="36px"
+          />
+          {% endcomment %}
+          <h1 class="text-white text-2xl font-bold">Predictions App</h1>
+        </a>
+        <button
+          id="drawer-opener"
+          class="navbar-toggler"
+          type="button"
+          data-toggle="collapse"
+          data-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
           <span class="material-icons txt_yellow">drag_handle</span>
         </button>
 
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-
-          <div id="navbarSupportedContent" class="collapse navbar-collapse show"><ul id="menu-top-menu" class="navbar-nav ml-auto custom-style"><li itemscope="itemscope" itemtype="https://www.schema.org/SiteNavigationElement" id="menu-item-751" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home current-menu-item page_item page-item-7 current_page_item active menu-item-751 nav-item"><a title="Home" href="https://irembo.com/" class="nav-link" aria-current="page">Home</a></li>
-<li itemscope="itemscope" itemtype="https://www.schema.org/SiteNavigationElement" id="menu-item-108" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-108 nav-item"><a title="About" href="https://irembo.com/about/" class="nav-link">About</a></li>
-<li itemscope="itemscope" itemtype="https://www.schema.org/SiteNavigationElement" id="menu-item-107" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-107 nav-item"><a title="Case studies" href="https://irembo.com/case-studies/" class="nav-link">Case studies</a></li>
-<li itemscope="itemscope" itemtype="https://www.schema.org/SiteNavigationElement" id="menu-item-106" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-106 nav-item"><a title="Careers" href="https://irembo.com/careers/" class="nav-link">Careers</a></li>
-<li itemscope="itemscope" itemtype="https://www.schema.org/SiteNavigationElement" id="menu-item-105" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-105 nav-item"><a title="Blog" href="https://irembo.com/blog/" class="nav-link">Blog</a></li>
-</ul></div>                    
-      <form class="form-inline ml-sm-4 justify-content-center">
-        <a href="https://irembo.gov.rw/home/citizen/all_services" target="_blank" class="btn btn_primary btn_small btn_dark ml-3">Visit IremboGov</a>
-      </form>
-    </div>
-  </div>
-</nav>
-
-
-
-<!-- New landing section -->
-
-                        <div class="container-fluid d-flex" id="index_landing" style="background: url(https://i0.wp.com/irembo.com/wp-content/uploads/2023/08/DSC06726.jpg?fit=7438%2C4961&ssl=1) no-repeat;
-                         background-image: linear-gradient( rgba(2, 19, 38, 0.6), rgba(8, 58, 114, 0.6) ), url(https://i0.wp.com/irembo.com/wp-content/uploads/2023/08/DSC06726.jpg?fit=7438%2C4961&ssl=1);
-                         background-size: cover;
-                         background-position: center;
-                         padding: 200px 16px !important;">
-
-                <div class="container align-self-center">
-                    <div class="row">
-                        <div class="col-12 col-md-10">
-                            <p class="txt_2 txt_white fowe_medium mabo32 wow fadeInUp">We build great products that meaningfully <span class="fowe_bold txt_yellow wow fadeIn" data-wow-delay="1s">improve people’s lives</span></p>
-                            <p class="txt_4 txt_white fowe_light wow fadeInUp">Irembo uses design and technology to build digital products that help organisations deliver world-class online services and payments. </p>
-                                                            <a href=#footer class="btn btn_primary mato32 mabo64 wow
-                                   fadeInUp" data-wow-delay="0.5s">Partner with us</a>
-                                                    </div>
-                    </div>
-                </div>
-            </div>
-
-            
-<!-- Animated GIF section -->
-
-                        <div class="container-fluid irembo_section_b bg_white">
-                <div class="container align-self-center">
-                    <div class="row justify-content-center">
-                        <div class="col-12">
-                            <img src="https://i0.wp.com/irembo.com/wp-content/uploads/2023/06/Sample-service-1.gif?fit=1920%2C1097&ssl=1" class="img_landing mabo64 wow fadeInUp" data-wow-delay="0.5s" width="100%" />
-                        </div>
-                        <div class="col-12 col-md-9">
-                            <p class="txt_3 txt_black text-center fowe_medium mabo0 wow fadeInUp"><span class="fowe_bold txt_blue wow fadeIn" data-wow-delay="1s">IremboGov</span> — All the public services you need in one place                            </p>
-                            <p class="txt_4 txt_grey fowe_light text-center mabo0 wow fadeInUp" data-wow-delay="0.2s">
-                                Millions of people use public services every year. Families apply for health care. Travellers apply for visas. Too often, outdated tools and complex systems make these interactions frustrating. 
-
-To improve these services, in 2015, we introduced our first product, IremboGov, a web and USSD platform that makes it easier for Rwandan citizens and foreigners to access over 100 public services anytime, anywhere and on any device.                             </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            
-<!-- Services section -->
-
-            
-            <div class="container-fluid irembo_section bg_white">
-                <div class="container-fluid irembo_container align-self-center">
-                    <div class="row">
-                        <div class="col-12">
-                            <p class="txt_3 txt_black text-center fowe_medium mabo32 wow fadeInUp">what <span class="fowe_bold txt_blue wow fadeIn" data-wow-delay="1s">IremboGov</span> offers</p>
-                        </div>
-                        
-                            <div class="col-12 col-md-4 text-center mato32 mabo32 wow fadeInLeft">
-                                <img src=https://irembo.com/wp-content/uploads/2023/06/business-process-management.svg class="mabo32 iremboGov_offers_icons" width="100px" />
-                                <p class="txt_4 fowe_bold txt_black text-center mabo16">Business process management </p>
-                                <p class="txt_5 fowe_light txt_grey text-center mabo0">On IremboGov, users have 24/7 access to apply for any of the 106 public services. Officers across the government can log in to process applications and send services straight to applicants' emails.</p>
-                            </div>
-                        
-                            <div class="col-12 col-md-4 text-center mato32 mabo32 wow fadeInLeft">
-                                <img src=https://irembo.com/wp-content/uploads/2023/06/simple-easy-digital-payments.svg class="mabo32 iremboGov_offers_icons" width="100px" />
-                                <p class="txt_4 fowe_bold txt_black text-center mabo16"> Simple, easy digital payments</p>
-                                <p class="txt_5 fowe_light txt_grey text-center mabo0">Collecting money for governments is hard. We know how to do it through our payment platform that meets national accounting and reporting specificities and needs. 
-</p>
-                            </div>
-                        
-                            <div class="col-12 col-md-4 text-center mato32 mabo32 wow fadeInLeft">
-                                <img src=https://irembo.com/wp-content/uploads/2023/06/world-class-reporting.svg class="mabo32 iremboGov_offers_icons" width="100px" />
-                                <p class="txt_4 fowe_bold txt_black text-center mabo16">World class reporting and data analytics </p>
-                                <p class="txt_5 fowe_light txt_grey text-center mabo0">Predictive analytics can help you improve your business. IremboGov provides business intelligence reports on usage and improvement potential. 
-</p>
-                            </div>
-                        
-                        <div class="col-12 text-center">
-                            
-                                <a href=https://irembo.gov.rw/home/citizen/all_services target="_blank" class="btn btn_primary mato64 wow fadeInUp" data-wow-delay="0.5s">
-                                    Visit IremboGov                                </a>
-
-                                                    </div>
-                    </div>
-                </div>
-            </div>
-
-            
-<!-- Statistics section -->
-
-                        <div class="container-fluid irembo_section bg_blue">
-                <div class="container-fluid irembo_container align-self-center">
-                    <div class="row">
-                        <div class="col-12 col-md-8">
-                            <p class="txt_3 txt_white fowe_medium mabo64 wow fadeInUp">We have digitized over <span class="fowe_bold wow fadeIn" data-wow-delay="1s">100 public services,</span> making Rwanda a GovTech leader in Africa.</p>
-                        </div>
-                        <div class="col-12">
-                            <p class="txt_4 txt_white fowe_light mabo64 wow fadeInUp">Outcome</p>
-                        </div>
-                        <div class="col-12  mato32 mabo32 col-md-3 wow bounceIn" data-wow-delay="0.2s">
-                            <p class="txt_1 txt_white fowe_bold mabo16"><span id="count1">40</span>m+</p>
-                            <p class="txt_5 txt_white fowe_light mabo0">Working hours saved for Rwandan citizens traveling to and waiting in government offices across the country.</p>
-                        </div>
-                        <div class="col-12  mato32 mabo32 col-md-3 wow bounceIn" data-wow-delay="0.4s">
-                            <p class="txt_1 txt_white fowe_bold mabo16"><span id="count2">80</span>%</p>
-                            <p class="txt_5 txt_white fowe_light mabo0">Reduction in service access time when introduced to IremboGov. Services used to take 5 days, but now they only take 24 hours.</p>
-                        </div>
-                        <div class="col-12  mato32 mabo32 col-md-3 wow bounceIn" data-wow-delay="0.6s">
-                            <p class="txt_1 txt_white fowe_bold mabo16"><span id="count3">45</span>%</p>
-                            <p class="txt_5 txt_white fowe_light mabo0">Of users pay for our services online. Leading the path to a cashless society and economy for Rwanda.</p>
-                        </div>
-                        <div class="col-12  mato32 mabo32 col-md-3 wow bounceIn" data-wow-delay="0.8s">
-                            <p class="txt_1 txt_white fowe_bold mabo16"><span id="count4">4000</span>+</p>
-                            <p class="txt_5 txt_white fowe_light mabo0">Agent strong network that helps users access our online services. Hey, that is 4000 new jobs!</p>
-                        </div>
-
-
-                    </div>
-                </div>
-            </div>
-
-            
-<!-- HOME ARTICLES SECTION  -->
-<div class="container-fluid irembo_section bg_grey_a">
-    <div class="container align-self-center">
-        <div class="row justify-content-center">
-                                                                        <div class="col-12 col-md-7">
-                            <p class="txt_3 txt_black fowe_medium text-center mabo16 wow fadeInUp" data-wow-delay="0s">
-                                Irembo is the digital transformation <span class="fowe_bold txt_blue wow fadeIn" data-wow-delay="1s">partner </span>of choice for over 20 public agencies in Rwanda                             </p>
-                            <p class="txt_4 txt_grey fowe_light text-center mabo64 wow fadeInUp" data-wow-delay="0.2s">
-                                Whether it is designing citizen-centered services or building payments, we know what it takes to deliver innovative digital solutions for our partners.</p>
-                        </div>
-                                                
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <div
+            id="navbarSupportedContent"
+            class="collapse navbar-collapse show"
+          >
+            <ul id="menu-top-menu" class="navbar-nav ml-auto custom-style">
+              <li
+                itemscope="itemscope"
+                itemtype="https://www.schema.org/SiteNavigationElement"
+                id="menu-item-751"
+                class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home current-menu-item page_item page-item-7 current_page_item active menu-item-751 nav-item"
+              >
+                <a
+                  title="Home"
+                  href="https://irembo.com/"
+                  class="nav-link"
+                  aria-current="page"
+                  >Home</a
+                >
+              </li>
+              <li
+                itemscope="itemscope"
+                itemtype="https://www.schema.org/SiteNavigationElement"
+                id="menu-item-108"
+                class="menu-item menu-item-type-post_type menu-item-object-page menu-item-108 nav-item"
+              >
+                <a
+                  title="About"
+                  href="https://irembo.com/about/"
+                  class="nav-link"
+                  >About</a
+                >
+              </li>
+              <li
+                itemscope="itemscope"
+                itemtype="https://www.schema.org/SiteNavigationElement"
+                id="menu-item-107"
+                class="menu-item menu-item-type-post_type menu-item-object-page menu-item-107 nav-item"
+              >
+                <a
+                  title="Case studies"
+                  href="https://irembo.com/case-studies/"
+                  class="nav-link"
+                  >Case studies</a
+                >
+              </li>
+              <li
+                itemscope="itemscope"
+                itemtype="https://www.schema.org/SiteNavigationElement"
+                id="menu-item-106"
+                class="menu-item menu-item-type-post_type menu-item-object-page menu-item-106 nav-item"
+              >
+                <a
+                  title="Careers"
+                  href="https://irembo.com/careers/"
+                  class="nav-link"
+                  >Careers</a
+                >
+              </li>
+              <li
+                itemscope="itemscope"
+                itemtype="https://www.schema.org/SiteNavigationElement"
+                id="menu-item-105"
+                class="menu-item menu-item-type-post_type menu-item-object-page menu-item-105 nav-item"
+              >
+                <a title="Blog" href="https://irembo.com/blog/" class="nav-link"
+                  >Blog</a
+                >
+              </li>
+            </ul>
+          </div>
+          <form class="form-inline ml-sm-4 justify-content-center">
+            <a
+              href="https://irembo.gov.rw/home/citizen/all_services"
+              target="_blank"
+              class="btn btn_primary btn_small btn_dark ml-3"
+              >Visit IremboGov</a
+            >
+          </form>
         </div>
-        <div class="row justify-content-center">
-            
-                <div class="col-12 col-md mato32 mabo32 wow fadeInUp" data-wow-delay="0.2s">
-                                            <img src="https://irembo.com/wp-content/uploads/2023/06/Screen-Shot-2021-04-09-at-11.50.34.jpg" class="mabo32 bora8" width="100%" height="256px" />
-                                        <p class="txt_4 fowe_bold txt_black mabo16"> Digitising booking for motor vehicle inspection</p>
-                    <div class="blog-container">
-                        <p>The Rwanda National Police needed a more efficient way to manage booking appointments of over 10,000 annual motor vehicle inspections across various country inspection centers.</p>
-                    </div>
-                    <a href="https://irembo.com/2021/08/digitising-booking-for-motor-vehicle-inspection/">
-                        <button class="btn btn_link">Read more</button>
-                    </a>
-                </div>
-            
-                <div class="col-12 col-md mato32 mabo32 wow fadeInUp" data-wow-delay="0.2s">
-                                            <img src="https://irembo.com/wp-content/uploads/2023/06/citizen-centric-experience.png" class="mabo32 bora8" width="100%" height="256px" />
-                                        <p class="txt_4 fowe_bold txt_black mabo16"> Building a citizen-centric experience for local government services in Rwanda.</p>
-                    <div class="blog-container">
-                        <p>Local government services such as &#8220;marriage certificates&#8221;, &#8220;birth certificates&#8221; and &#8220;certificates of being single&#8221; are some of the most requested services, contributing to over 20% of applications&#8230;</p>
-                    </div>
-                    <a href="https://irembo.com/2021/08/building-a-citizen-centric-experience-for-local-government-services-in-rwanda/">
-                        <button class="btn btn_link">Read more</button>
-                    </a>
-                </div>
-            
+      </div>
+    </nav>
 
-            <div class="col-12 text-center wow fadeInUp">
-                <a href="/blog">
-                    <button class="btn btn_primary mato64">See more</button>
-                </a>
+    <!-- Services section -->
+    {% comment %} breast_cancer_urls malaria_urls crops_urls {% endcomment %}
+
+    <div class="container-fluid irembo_section bg_white">
+      <div class="container-fluid irembo_container align-self-center">
+        <div class="row">
+          <div class="col-12">
+            <p
+              class="txt_3 txt_black text-center fowe_medium mabo32 wow fadeInUp"
+            >
+              Available
+              <span class="fowe_bold txt_blue wow fadeIn" data-wow-delay="1s"
+                >Prediction Models</span
+              >
+            </p>
+          </div>
+          <div class="flex justify-between items-center">
+            <div class="text-center mato32 mabo32 wow fadeInLeft">
+              <img
+                src="{% static 'assets/breast_cancer.svg' %}"
+                class="mabo32 iremboGov_offers_icons"
+                width="100px"
+              />
+              <p class="txt_4 fowe_bold txt_black text-center mabo16">
+                Breat Cancer Prediction Model
+              </p>
+              <p class="txt_5 fowe_light txt_grey text-center mabo0">
+                The Breast Cancer Prediction Model is an advanced machine
+                learning tool designed to assist healthcare professionals in
+                early detection and diagnosis of breast cancer. Leveraging
+                high-accuracy algorithms and a comprehensive dataset, it
+                provides timely and reliable predictions, enhancing patient
+                outcomes and clinical decision-making. With a user-friendly
+                interface and explainable AI features, this model integrates
+                seamlessly into medical workflows, offering a powerful,
+                efficient, and transparent solution for early cancer detection.
+              </p>
             </div>
 
+            <div class="text-center mato32 mabo32 wow fadeInLeft">
+              <img
+                src="{% static 'assets/crops_yield.svg' %}"
+                class="mabo32 iremboGov_offers_icons"
+                width="100px"
+              />
+              <p class="txt_4 fowe_bold txt_black text-center mabo16">
+                Crops Yield prediction
+              </p>
+              <p class="txt_5 fowe_light txt_grey text-center mabo0">
+                The Crops Yield Prediction Model is an advanced machine learning
+                tool designed to forecast agricultural yields with high
+                accuracy. By analyzing factors such as weather conditions, soil
+                quality, crop type, and historical yield data, the model
+                provides reliable predictions to assist farmers and agronomists
+                in optimizing their practices.
+              </p>
+            </div>
+          </div>
+
+          <div class="col-12 text-center">
+            <a
+              href=""
+              target="_blank"
+              class="btn btn_primary mato64 wow fadeInUp"
+              data-wow-delay="0.5s"
+            >
+              Visit IremboGov
+            </a>
+          </div>
         </div>
+      </div>
     </div>
-</div>
 
-
-<!-- IREMBO PAY section -->
-
-            
-            <div class="container-fluid irembo_section bg_white">
-                <div class="container align-self-center">
-                    <div class="row justify-content-between">
-                        <div class="col-12 col-md-5 align-self-center mato32 mabo32">
-                            <p class="txt_3 txt_black fowe_medium mabo16 wow fadeInUp" data-wow-delay="0s">Coming soon!  <span class="fowe_bold txt_blue wow fadeIn" data-wow-delay="1s"></span></p>
-                            <p class="txt_4 txt_grey fowe_light mabo32 wow fadeInUp" data-wow-delay="0.1s">We're launching a new product soon and would love for you to be one of the first people to try it out. </p>
-                            <a href="#footer" class="btn btn_primary wow fadeInUp" data-wow-delay="0.2s">Sign up </a>
-                        </div>
-                        <div class="col-12 col-md-6 wow bounceIn" data-wow-delay="0.2s">
-                            <img src="https://i0.wp.com/irembo.com/wp-content/uploads/2023/06/Pay-1-scaled-1.jpg?fit=1024%2C614&ssl=1" class="mabo32 bora8" width="100%" height="380px" />
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            
-
-<div class="container-fluid irembo_section bg_grey_b" id="footer">
-    <div class="container-fluid irembo_container">
+    <div class="container-fluid irembo_section bg_grey_b" id="footer">
+      <div class="container-fluid irembo_container">
         <div class="row justify-content-between">
-            <div class="col-12 col-md-12 col-lg-2">
-                <img src="https://irembo.com/wp-content/themes/irembo/images/icon_b.png" class="footer_logo mabo64"
-                     height="72px"/>
-            </div>
-            <div class="col-12  col-md-6 col-lg-2 mabo32">
-                <p class="txt_4 fowe_bold txt_black mabo64">Explore</p>
-                <a href="/about" class="txt_5 footer_link txt_grey">About</a>
-                <a href="/case-studies" class="txt_5 footer_link txt_grey">Case studies</a>
-                <a href="/blog" class="txt_5 footer_link txt_grey">Blog</a>
-                <a href="/careers" class="txt_5 footer_link txt_grey">Careers</a>
-                <a href="#brand_kit" class="txt_5 footer_link txt_grey">Brand Kit</a>
-            </div>
-            <div class="col-12 col-md-6 col-lg-4 mabo32">
-                <p class="txt_4 fowe_bold txt_black mabo64">Reach us</p>
-                <table>
-                    <tr>
-                        <td class="txt_5 fowe_bold txt_black pr-5">Location</td>
-                        <td><a href="#" class="txt_5 footer_link txt_grey">KG 9 Ave, Kigali</a></td>
-                    </tr>
-                    <tr>
-                        <td class="txt_5 fowe_bold txt_black pr-5">Email</td>
-                        <td><a href="#" class="txt_5 footer_link txt_grey">info@irembo.com</a></td>
-                    </tr>
-                    <tr>
-                    </tr>
-                    <tr>
-                        <td colspan="2">
-                            <a href="https://twitter.com/teamirembo" target="_blank"><span class="irembo_subscribe_social"><i class="fab fa-twitter"></i></span></a>
-                            <a href="https://www.linkedin.com/company/irembogov" target="_blank"><span class="irembo_subscribe_social"><i class="fab fa-linkedin-in"></i></span></a>
-                            <a href="https://www.youtube.com/channel/UC3zIST2BLfa6IiN7Kg6n0QQ" target="_blank"><span class="irembo_subscribe_social"><i class="fab fa-youtube"></i></span></a>
-                            <a href="https://facebook.com/irembogov" target="_blank"><span class="irembo_subscribe_social"><i
-                                            class="fab fa-facebook-f"></i></span></a>
-                            <a href="https://www.instagram.com/teamirembo/?utm_medium=copy_link" target="_blank"><span class="irembo_subscribe_social"><i
-                                            class="fab fa-instagram"></i></span></a> 
-                        </td>
-                    </tr>
-                </table>
-            </div>
-            <div class="col-12 col-md-12 col-lg-4">
-                <p class="txt_4 fowe_bold txt_black mabo64">Talk to our digital experts</p>
-                <form id="contactUs-form" method="post" >
-                    <div class="form-row mabo16">
-                        <div class="col mr-md-1">
-                            <input
-                                    type="text"
-                                    class="form-control input_normal"
-                                    placeholder="Full name"
-                                    name="name"
-                                    id="fullName"
-                            >
-                        </div>
-                        <div class="col ml-md-1">
-                            <input type="email" class="form-control input_normal" name="email"
-                            id="email"
-                                  placeholder="Email address">
-                        </div>
-                    </div>
-                    <div class="form-row">
-                        <div class="col">
-                            <textarea id="message" class="form-control textarea_normal" placeholder="Your message"></textarea>
-                        </div>
-                    </div>
-                <!--<div class="g-recaptcha"-->
-                <!--data-sitekey="6LciiHgbAAAAALtO8igqYsWOLzMcOOcpFjwSZQKN"-->
-                <!--data-callback="submitFormHandler"-->
-                <!-- </div> -->
-                <div id="g-recaptcha-error"></div>
-                    <div class="form-row">
-                        <div class="col text-right">
-                            <button
-                            onClick="submitFormHandler();"
-                            id="submit-btn"
-                            type="button"
-                            data-callback="onSubmit"
-                            class="btn btn_primary btn_small mato32"
-                            value=""
-                            >SUBMIT</button>
-                        </div>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
-</div>
-
-
-<div class="container-fluid bg_grey_b">
-    <div class="container-fluid irembo_container">
-        <div class="row justify-content-between">
-            <div class="col-12" id="subfooter">
-                <div class="row justify-content-center">
-                    <div class="col-12 col-sm-auto">
-                        <span class="txt_5 footer_link txt_black text-center">Copyright © 2023 Irembo. All rights reserved.</span>
-                    </div>
+          <div class="col-12 col-md-12 col-lg-2">
+            <img
+              src="https://irembo.com/wp-content/themes/irembo/images/icon_b.png"
+              class="footer_logo mabo64"
+              height="72px"
+            />
+          </div>
+          <div class="col-12 col-md-6 col-lg-2 mabo32">
+            <p class="txt_4 fowe_bold txt_black mabo64">Explore</p>
+            <a href="/about" class="txt_5 footer_link txt_grey">About</a>
+            <a href="/case-studies" class="txt_5 footer_link txt_grey"
+              >Case studies</a
+            >
+            <a href="/blog" class="txt_5 footer_link txt_grey">Blog</a>
+            <a href="/careers" class="txt_5 footer_link txt_grey">Careers</a>
+            <a href="#brand_kit" class="txt_5 footer_link txt_grey"
+              >Brand Kit</a
+            >
+          </div>
+          <div class="col-12 col-md-6 col-lg-4 mabo32">
+            <p class="txt_4 fowe_bold txt_black mabo64">Reach us</p>
+            <table>
+              <tr>
+                <td class="txt_5 fowe_bold txt_black pr-5">Location</td>
+                <td>
+                  <a href="#" class="txt_5 footer_link txt_grey"
+                    >KG 9 Ave, Kigali</a
+                  >
+                </td>
+              </tr>
+              <tr>
+                <td class="txt_5 fowe_bold txt_black pr-5">Email</td>
+                <td>
+                  <a href="#" class="txt_5 footer_link txt_grey"
+                    >info@irembo.com</a
+                  >
+                </td>
+              </tr>
+              <tr></tr>
+              <tr>
+                <td colspan="2">
+                  <a href="https://twitter.com/teamirembo" target="_blank"
+                    ><span class="irembo_subscribe_social"
+                      ><i class="fab fa-twitter"></i></span
+                  ></a>
+                  <a
+                    href="https://www.linkedin.com/company/irembogov"
+                    target="_blank"
+                    ><span class="irembo_subscribe_social"
+                      ><i class="fab fa-linkedin-in"></i></span
+                  ></a>
+                  <a
+                    href="https://www.youtube.com/channel/UC3zIST2BLfa6IiN7Kg6n0QQ"
+                    target="_blank"
+                    ><span class="irembo_subscribe_social"
+                      ><i class="fab fa-youtube"></i></span
+                  ></a>
+                  <a href="https://facebook.com/irembogov" target="_blank"
+                    ><span class="irembo_subscribe_social"
+                      ><i class="fab fa-facebook-f"></i></span
+                  ></a>
+                  <a
+                    href="https://www.instagram.com/teamirembo/?utm_medium=copy_link"
+                    target="_blank"
+                    ><span class="irembo_subscribe_social"
+                      ><i class="fab fa-instagram"></i></span
+                  ></a>
+                </td>
+              </tr>
+            </table>
+          </div>
+          <div class="col-12 col-md-12 col-lg-4">
+            <p class="txt_4 fowe_bold txt_black mabo64">
+              Talk to our digital experts
+            </p>
+            <form id="contactUs-form" method="post">
+              <div class="form-row mabo16">
+                <div class="col mr-md-1">
+                  <input
+                    type="text"
+                    class="form-control input_normal"
+                    placeholder="Full name"
+                    name="name"
+                    id="fullName"
+                  />
                 </div>
-            </div>
+                <div class="col ml-md-1">
+                  <input
+                    type="email"
+                    class="form-control input_normal"
+                    name="email"
+                    id="email"
+                    placeholder="Email address"
+                  />
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="col">
+                  <textarea
+                    id="message"
+                    class="form-control textarea_normal"
+                    placeholder="Your message"
+                  ></textarea>
+                </div>
+              </div>
+              <!--<div class="g-recaptcha"-->
+              <!--data-sitekey="6LciiHgbAAAAALtO8igqYsWOLzMcOOcpFjwSZQKN"-->
+              <!--data-callback="submitFormHandler"-->
+              <!-- </div> -->
+              <div id="g-recaptcha-error"></div>
+              <div class="form-row">
+                <div class="col text-right">
+                  <button
+                    onClick="submitFormHandler();"
+                    id="submit-btn"
+                    type="button"
+                    data-callback="onSubmit"
+                    class="btn btn_primary btn_small mato32"
+                    value=""
+                  >
+                    SUBMIT
+                  </button>
+                </div>
+              </div>
+            </form>
+          </div>
         </div>
+      </div>
     </div>
-</div>
 
+    <div class="container-fluid bg_grey_b">
+      <div class="container-fluid irembo_container">
+        <div class="row justify-content-between">
+          <div class="col-12" id="subfooter">
+            <div class="row justify-content-center">
+              <div class="col-12 col-sm-auto">
+                <span class="txt_5 footer_link txt_black text-center"
+                  >Copyright © 2023 Irembo. All rights reserved.</span
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
 
-<!-- JAVASCRIPT IMPORTS  -->
+    <!-- JAVASCRIPT IMPORTS  -->
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<script src="https://irembo.com/wp-content/themes/irembo/js/bootstrap.min.js"></script><script src="https://irembo.com/wp-content/themes/irembo/js/jquery.js"></script><script src="https://kit.fontawesome.com/890cf79e55.js" crossorigin="anonymous"></script><script src="https://www.google.com/recaptcha/api.js" ></script><script
-  id="luma-checkout"
-  src="https://embed.lu.ma/checkout-button.js">
-</script><script src="https://irembo.com/wp-content/themes/irembo/js/bootstrap.bundle.js"></script><script src="https://irembo.com/wp-content/themes/irembo/js/bootstrap.bundle.js.map"></script><script src="https://irembo.com/wp-content/themes/irembo/js/bootstrap.bundle.min.js"></script><script src="https://irembo.com/wp-content/themes/irembo/js/bootstrap.bundle.min.js.map"></script><script src="https://irembo.com/wp-content/themes/irembo/js/bootstrap.js"></script><script src="https://irembo.com/wp-content/themes/irembo/js/bootstrap.js.map"></script><script src="https://irembo.com/wp-content/themes/irembo/js/bootstrap.min.js"></script><script src="https://irembo.com/wp-content/themes/irembo/js/bootstrap.min.js.map"></script><script src="https://irembo.com/wp-content/themes/irembo/js/jquery.js"></script><script src="https://irembo.com/wp-content/themes/irembo/js/sweetalert.min.js"></script><script src="https://irembo.com/wp-content/themes/irembo/js/wow.min.js"></script><script src="https://irembo.com/wp-content/themes/irembo/js/custom.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script><script src="https://kit.fontawesome.com/890cf79e55.js" crossorigin="anonymous"></script><script src="https://www.google.com/recaptcha/api.js" ></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script><script type="text/javascript">
-(function() {
-emailjs.init("user_hOD6GQSpkTAeeh512qzE6");
-})();
-
-</script>
-</body>
+    <script src="https://irembo.com/wp-content/themes/irembo/js/bootstrap.min.js"></script>
+    <script src="https://irembo.com/wp-content/themes/irembo/js/jquery.js"></script>
+    <script
+      src="https://kit.fontawesome.com/890cf79e55.js"
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://www.google.com/recaptcha/api.js"></script>
+    <script
+      id="luma-checkout"
+      src="https://embed.lu.ma/checkout-button.js"
+    ></script>
+    <script src="https://irembo.com/wp-content/themes/irembo/js/bootstrap.bundle.js"></script>
+    <script src="https://irembo.com/wp-content/themes/irembo/js/bootstrap.bundle.js.map"></script>
+    <script src="https://irembo.com/wp-content/themes/irembo/js/bootstrap.bundle.min.js"></script>
+    <script src="https://irembo.com/wp-content/themes/irembo/js/bootstrap.bundle.min.js.map"></script>
+    <script src="https://irembo.com/wp-content/themes/irembo/js/bootstrap.js"></script>
+    <script src="https://irembo.com/wp-content/themes/irembo/js/bootstrap.js.map"></script>
+    <script src="https://irembo.com/wp-content/themes/irembo/js/bootstrap.min.js"></script>
+    <script src="https://irembo.com/wp-content/themes/irembo/js/bootstrap.min.js.map"></script>
+    <script src="https://irembo.com/wp-content/themes/irembo/js/jquery.js"></script>
+    <script src="https://irembo.com/wp-content/themes/irembo/js/sweetalert.min.js"></script>
+    <script src="https://irembo.com/wp-content/themes/irembo/js/wow.min.js"></script>
+    <script src="https://irembo.com/wp-content/themes/irembo/js/custom.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
+    <script
+      src="https://kit.fontawesome.com/890cf79e55.js"
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://www.google.com/recaptcha/api.js"></script>
+    <script
+      type="text/javascript"
+      src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"
+    ></script>
+    <script type="text/javascript">
+      (function () {
+        emailjs.init("user_hOD6GQSpkTAeeh512qzE6");
+      })();
+    </script>
+  </body>
 </html>
