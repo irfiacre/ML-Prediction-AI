@@ -6,10 +6,10 @@ This is a simple project to predict:
 
 ## Getting Started
 
-### 1. Create a virtual environment
+### 1. Create a virtual environment (Optional on windows)
 ```
-$ python3 -m venv venv   (If you have python version 3.11*, replace python3 with python3.11
-$ Activate the virtual environment
+$ python3 -m venv venv   #(If you have python version 3.11*, replace python3 with python3.11)
+# Activate the virtual environment
 $ source venv/bin/activate
 ```
 
