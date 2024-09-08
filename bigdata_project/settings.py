@@ -23,9 +23,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = "django-insecure-!7(5^di0^pg8@ov#mfmc=^w82iya99h#x8j!5j*c-8zore^z0w"
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*','irfiacre.pythonanywhere.com']
 
 
 # Application definition
@@ -39,7 +39,7 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     "tailwind",
     "breast_cancer",
-    "irembo_com",
+    "home",
     "django_browser_reload",
     "malaria",
     "crops",
@@ -129,7 +129,7 @@ STATIC_URL = "static/"
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
-TAILWIND_APP_NAME = 'irembo_com'
+TAILWIND_APP_NAME = 'home'
 
 INTERNAL_IPS = [
     "127.0.0.1",

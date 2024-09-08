@@ -20,7 +20,7 @@ from malaria import urls as malaria_urls
 from crops import urls as crops_urls
 
 urlpatterns = [
-    path("", include("irembo_com.urls")),
+    path("", include("home.urls")),
     path("breast-cancer/", include(breast_cancer_urls)),
     path("malaria/", include(malaria_urls)),
     path("crops/", include(crops_urls)),

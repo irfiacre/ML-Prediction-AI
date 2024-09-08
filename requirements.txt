@@ -1,2 +1,8 @@
-django
-django-tailwind
+asgiref==3.8.1
+Django>=5.1.1
+django-browser-reload==1.15.0
+django-tailwind==3.8.0
+joblib==1.4.2
+numpy==2.1.1
+sqlparse==0.5.1
+typing_extensions==4.12.2

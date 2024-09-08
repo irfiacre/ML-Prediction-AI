@@ -5,18 +5,11 @@ import numpy as np
 
 
 def index(request):
-    latest_question_list = []
-    context = {"latest_question_list": latest_question_list}
-
-    return render(request, "crops/home.html", context)
-
-def prediction(request):
     prediction = [0]
     user_inputs=[]
     if request.method == 'POST':
         # Load your machine learning model
         model = load('controller/model/crop-predictor.joblib')
-
         # Get the input values from the form and convert them to float
         rainfall = int(request.POST.get('rainfall'))
         fertilizer = int(request.POST.get('fertilizer'))
@@ -38,10 +31,9 @@ def prediction(request):
 
         prediction = model.predict(input_data)
         print(f"==== Predicted crop yield: {prediction.tolist()}")
-        
+
     context = {
-        "prediction_value": round((prediction[0]),3), 
+        "prediction_value": round((prediction[0]),3),
         "user_inputs": [str(i) for i in user_inputs],
         }
-    return render(request, "crops/prediction.html", context)
-
+    return render(request, "crops/home.html", context)
