@@ -13,6 +13,9 @@ $ python3 -m venv venv   #(If you have python version 3.11*, replace python3 wit
 $ source venv/bin/activate
 ```
 
+
+
+
 ### 2. Install dependencies
 ```
 pip3 install -r requirements.txt
