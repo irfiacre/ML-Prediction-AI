@@ -15,8 +15,7 @@ $ source venv/bin/activate
 
 ### 2. Install dependencies
 ```
-pip3 install django
-pip3 install django-tailwind 
+pip3 install -r requirements.txt
 ```
 (To view more about tailwind integration, visit this [document](https://django-tailwind.readthedocs.io/en/latest/installation.html))
 
